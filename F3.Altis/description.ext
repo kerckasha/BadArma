@@ -33,10 +33,10 @@ enableDebugConsole = 1;
 // F3 - Respawn Settings
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-respawn = 1;
+respawn = 4;
 respawndelay = 3;
 respawnOnStart = 0;
-respawnTemplates[] = {"Seagull","f_spectator","f_JIP"};
+respawnTemplates[] = {"Group","Spectator","f_JIP","EndMission"};
 
 // ============================================================================================
 
@@ -161,7 +161,7 @@ class Params
             title = "Radio System";
             values[] = {0,1,2,3};
             texts[] = {"Off","ACRE","TFR","ACRE2"};
-            default = 0;
+            default = 3;
             code = "f_var_radios = %1";
     };
 
@@ -175,7 +175,7 @@ class Params
             title = "Medical System";
             values[] = {0,1,2};
             texts[] = {"Arma 3 Default","F3 Simple Wounding System","Authentic Gameplay Mod"};
-            default = 0;
+            default = 2;
             code = "f_var_medical = %1";
     };
 
@@ -365,17 +365,6 @@ class CfgDebriefing
 
 class CfgRespawnTemplates
 {
-	// F3 Spectator Script
-	class f_Spectator
-	{
-		onPlayerRespawn = "f_fnc_CamInit";
-	};
-  	//Overwrite Vanilla Seagull
-    class Seagull
-    {
-        onPlayerRespawn = "";
-    };
-	// F3 JIP Menu
 	class f_JIP
 	{
 		onPlayerRespawn = "f\JIP\f_JIP_playerRespawn.sqf";
@@ -391,8 +380,6 @@ class CfgRespawnTemplates
 #include "f\JIP\f_JIP_kitpicker.h"
 #include "f\JIP\f_JIP_grppicker.h"
 
-// Menu components for the Spectator Script
-#include "f\spect\config.hpp"
 
 // ============================================================================================
 
@@ -452,18 +439,6 @@ class CfgFunctions
 			class localGroupMarker{};
 			class localSpecialistMarker{};
 		};
-		class authorisedCrew
-		{
-			file = "f\authorisedCrew";
-			class authorisedCrewCheck {};
-		};
-		class FTMemberMarkers
-		{
-			file = "f\FTMemberMarkers";
-			class SetLocalFTMemberMarkers{};
-			class GetMarkerColor{};
-			class LocalFTMarkerSync{};
-		};
 		class bodyRemoval
 		{
 			file = "f\removeBody";
@@ -480,16 +455,6 @@ class CfgFunctions
 			class mapClickTeleportUnit{};
 			class mapClickTeleportGroup{};
 		};
-		class nametag
-		{
-			file = "f\nametag";
-			class drawNameTag{};
-		};
-		class preMount
-		{
-			file = "f\preMount";
-			class mountGroups{};
-		};
 		class zeus
 		{
 			file = "f\zeus";
@@ -505,30 +470,12 @@ class CfgFunctions
 			class acre_setRadioFrequencies{};
 			class acre_configureSpectatorChat{};
 		};
-		class tfr
-		{
-			file = "f\radios\tfr";
-			class tfr_removeRadios{};
-			class tfr_addRadios{};
-			class tfr_setRadioFrequencies{};
-			class tfr_configureSpectatorChat{};
-		};
 		class safeStart
 		{
 			file = "f\safeStart";
 			class safety{};
 		};
-		#include "f\simplewoundingsystem\config.hpp"
-		#include "f\spect\functions.hpp"
+
 
 	};
-};
-
-
-// ============================================================================================
-
-// F3 - Custom Insignia
-
-class CfgUnitInsignia {
-	#include "f\assignGear\insignia\define.hpp"
 };

@@ -1,19 +1,5 @@
 // ====================================================================================
 
-// F3 - Disable Saving and Auto Saving
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-enableSaving [false, false];
-
-// ====================================================================================
-
-// F3 - Mute Orders and Reports
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-enableSentences false;
-
-// ====================================================================================
-
 // F3 - MapClick Teleport
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
@@ -45,12 +31,6 @@ f_script_setGroupIDs = [] execVM "f\setGroupID\f_setGroupIDs.sqf";
 
 f_script_setTeamColours = [] execVM "f\setTeamColours\f_setTeamColours.sqf";
 
-// ====================================================================================
-
-// F3 - Fireteam Member Markers
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-[] spawn f_fnc_SetLocalFTMemberMarkers;
 
 // ====================================================================================
 
@@ -80,26 +60,6 @@ if(isServer) then {
 
 // ====================================================================================
 
-// F3 - Dynamic View Distance
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// f_var_viewDistance_default = 1250;
-// f_var_viewDistance_tank = 2000;
-// f_var_viewDistance_car = 2000;
-// f_var_viewDistance_rotaryWing = 2500;
-// f_var_viewDistance_fixedWing = 5000;
-// f_var_viewDistance_crewOnly = true;
-// [] execVM "f\dynamicViewDistance\f_setViewDistanceLoop.sqf";
-
-// ====================================================================================
-
-// F3 - Authorised Crew Check
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// VehicleName addEventhandler ["GetIn", {[_this,[UnitName1,UnitName2],false] call f_fnc_authorisedCrewCheck}];
-// VehicleName addEventhandler ["GetIn", {[_this,["UnitClass1","UnitClass2"],false] call f_fnc_authorisedCrewCheck}];
-
-// ====================================================================================
 
 // F3 - Casualties Cap
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
@@ -133,12 +93,6 @@ if(isServer) then {
 
 // ====================================================================================
 
-// F3 - Name Tags
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-// [] execVM "f\nametag\f_nametags.sqf";
-
-// ====================================================================================
 
 // F3 - Group E&E Check
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
@@ -162,13 +116,6 @@ if(isServer) then {
 
 // ====================================================================================
 
-// F3 - Join Group Action
-// Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
-
-[false] execVM "f\groupJoin\f_groupJoinAction.sqf";
-
-// ====================================================================================
-
 // F3 - Mission Timer/Safe Start
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
@@ -188,13 +135,13 @@ f_var_JIP_GearMenu = true;			// Can JIP/respawned players select their own gear?
 // F3 - AI Unit Caching
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-[30] spawn f_fnc_cInit;
+//[30] spawn f_fnc_cInit;
 
 // Note: Caching aggressiveness is set using the f_var_cachingAggressiveness variable; possible values:
 // 1 - cache only non-leaders and non-drivers
 // 2 - cache all non-moving units, always exclude vehicle drivers
 // 3 - cache all units, incl. group leaders and vehicle drivers
-f_var_cachingAggressiveness = 2;
+//f_var_cachingAggressiveness = 2;
 
 // ====================================================================================
 
@@ -208,9 +155,6 @@ f_var_cachingAggressiveness = 2;
 // F3 - Medical Systems Support
 // Credits: Please see the F3 online manual (http://www.ferstaberinde.com/f3/en/)
 
-// SWS Config Settings
-// How many extra FirstAidKits (FAKS) each player should receive when using the F3 Simple Wounding System:
-f_wound_extraFAK = 2;
 
 [] execVM "f\medical\medical_init.sqf";
 
